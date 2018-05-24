@@ -1,10 +1,31 @@
 import React from 'react';
 import { HashRouter, Router, Switch, Route, NavLink } from 'react-router-dom';
+import { createStore } from 'redux';
 import One from './components/One';
 import Two from './components/Two';
 import Three from './components/Three';
 import Four from './components/Four';
 import styles from './App.css'
+
+function counter( state = {}, action ){
+  switch( action.type ){
+    // case 'increment':
+    //   return state + 1;
+    // case 'decrement':
+    //   return state - 1; 
+    default:
+      return state = action
+  }
+}
+
+const store = createStore(counter);
+
+store.dispatch( {type:'increment'} );
+store.dispatch( {type:'increment'} );
+store.dispatch( {type:'decrement'} );
+store.dispatch( {type:'increment',name:"jack"} );
+
+console.log( store.getState() )
 
 export default class App extends React.Component {
   render() {
@@ -42,26 +63,3 @@ export default class App extends React.Component {
     )
   }
 }
-
-　　console.info("这是info");
-
-　　console.debug("这是debug");
-
-　　console.warn("这是warn");
-
-　　console.error("这是error");
-　　console.group("第一组信息");
-
-　　　　console.log("第一组第一条");
-
-　　　　console.log("第一组第二条");
-
-　　console.groupEnd();
-
-　　console.group("第二组信息");
-
-　　　　console.log("第二组第一条");
-
-　　　　console.log("第二组第二条");
-
-　　console.groupEnd();

@@ -13,7 +13,7 @@ class Two extends React.Component{
     render(){
         console.log(this.props.children)
         return (
-            <div>Two组件
+            <div>Two组件222
                 <p>{this.props.match.params.num}</p>
                 <HashRouter>
                     <Switch>
